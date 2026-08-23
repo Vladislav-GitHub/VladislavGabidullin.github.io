@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Владислав Габидуллин — Репетитор по математике</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #faf7f2;
+    --warm-white: #fff9f3;
+    --ink: #1c1810;
+    --ink-soft: #3d3830;
+    --ink-muted: #7a7165;
+    --amber: #c8852a;
+    --amber-light: #f0d4a8;
+    --amber-pale: #fdf3e3;
+    --teal: #2a7a7a;
+    --teal-light: #d4efef;
+    --border: rgba(28,24,16,0.12);
+    --radius: 12px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(250,247,242,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: 'Lora', serif;
+    font-size: 1.1rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+    transition: color 0.2s;
+    letter-spacing: 0.02em;
+  }
+  .nav-links a:hover { color: var(--amber); }
+
+  /* HERO */
+  .hero {
+    padding: 7rem 2rem 5rem;
+    max-width: 860px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 3rem;
+    align-items: center;
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    background: var(--amber-pale);
+    border: 1px solid var(--amber-light);
+    border-radius: 100px;
+    padding: 4px 14px;
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 {
+    font-family: 'Lora', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.18;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--amber);
+  }
+  .hero p {
+    font-size: 1.05rem;
+    color: var(--ink-soft);
+    max-width: 480px;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 0.65rem 1.5rem;
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--cream);
+    border: 2px solid var(--ink);
+  }
+  .btn-primary:hover { background: var(--amber); border-color: var(--amber); }
+  .btn-outline {
+    background: transparent;
+    color: var(--ink);
+    border: 2px solid var(--border);
+  }
+  .btn-outline:hover { border-color: var(--ink); }
+
+  .hero-avatar {
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    background: var(--amber-pale);
+    border: 3px solid var(--amber-light);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Lora', serif;
+    font-size: 3rem;
+    color: var(--amber);
+    flex-shrink: 0;
+    overflow: hidden;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  .hero-avatar img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+  }
+
+  /* STATS */
+  .stats-bar {
+    max-width: 860px;
+    margin: 0 auto 5rem;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .stat {
+    background: var(--warm-white);
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+  .stat-number {
+    font-family: 'Lora', serif;
+    font-size: 2rem;
+    color: var(--ink);
+    font-weight: 600;
+    line-height: 1;
+    margin-bottom: 0.35rem;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* SECTION SHARED */
+  section { padding: 4rem 2rem; }
+  .section-inner { max-width: 860px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 0.5rem;
+  }
+  .section-title {
+    font-family: 'Lora', serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+    line-height: 1.25;
+  }
+  .section-sub {
+    color: var(--ink-muted);
+    font-size: 1rem;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  /* NOTES */
+  #notes { background: var(--warm-white); }
+
+  .topic-tabs {
+    display: flex; gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+  .tab-btn {
+    padding: 0.45rem 1.1rem;
+    border-radius: 100px;
+    border: 1.5px solid var(--border);
+    background: transparent;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+    cursor: pointer;
+    transition: all 0.18s;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .tab-btn:hover { border-color: var(--amber); color: var(--amber); }
+  .tab-btn.active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--cream);
+  }
+
+  .notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+  .note-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+  }
+  .note-card:hover {
+    border-color: var(--amber);
+    box-shadow: 0 4px 20px rgba(200,133,42,0.12);
+    transform: translateY(-2px);
+  }
+  .note-card[data-hidden="true"] { display: none; }
+  .note-topic-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 100px;
+    width: fit-content;
+  }
+  .badge-calculus           { background: #fdf3e3; color: #a06820; border: 1px solid #f0d4a8; }
+  .badge-linear             { background: #d4efef; color: #1e6060; border: 1px solid #a8dcdc; }
+  .badge-statistics         { background: #ede8fb; color: #4a3a9c; border: 1px solid #c9c0f5; }
+  .badge-probabilty_theory  { background: #ede8fb; color: #c4761e; border: 1px solid #c4c590; }
+  .badge-geometry           { background: #e8f5e0; color: #2e6018; border: 1px solid #c0df9f; }
+  .badge-algebra            { background: #e6a5a5; color: #462424; border: 1px solid #c49d9d; }
+  .note-title {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.35;
+  }
+  .note-desc {
+    font-size: 0.82rem;
+    color: var(--ink-muted);
+    line-height: 1.6;
+    flex: 1;
+  }
+  .note-footer {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 0.75rem;
+  }
+  .note-dl-icon {
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    background: var(--amber-pale);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--amber);
+    font-size: 14px;
+    transition: background 0.2s;
+  }
+  .note-card:hover .note-dl-icon { background: var(--amber); color: white; }
+
+  /* PDF MODAL */
+  #pdf-modal {
+    display: none;
+    position: fixed; inset: 0; z-index: 999;
+    background: rgba(28,24,16,0.6);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  #pdf-modal.open { display: flex; }
+  .modal-box {
+    background: var(--warm-white);
+    border-radius: 16px;
+    width: 100%; max-width: 860px;
+    max-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .modal-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    gap: 1rem;
+  }
+  .modal-title {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .modal-header-actions { display: flex; align-items: center; gap: 0.75rem; }
+  .modal-dl-btn {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--amber);
+    text-decoration: none;
+    padding: 4px 12px;
+    border: 1px solid var(--amber-light);
+    border-radius: 100px;
+    background: var(--amber-pale);
+    transition: all 0.18s;
+    white-space: nowrap;
+  }
+  .modal-dl-btn:hover { background: var(--amber); color: white; border-color: var(--amber); }
+  .modal-close {
+    background: none; border: none; cursor: pointer;
+    font-size: 1.5rem; color: var(--ink-muted);
+    line-height: 1; padding: 4px;
+    transition: color 0.2s;
+    flex-shrink: 0;
+  }
+  .modal-close:hover { color: var(--ink); }
+  .modal-body {
+    flex: 1;
+    overflow: auto;
+    background: #f0ece6;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem;
+    min-height: 0;
+  }
+  .modal-body iframe {
+    width: 100%;
+    flex: 1;
+    min-height: 560px;
+    border: none;
+    border-radius: 8px;
+    background: white;
+  }
+  .modal-fallback {
+    display: none;
+    text-align: center;
+    padding: 4rem 2rem;
+  }
+  .modal-fallback p { color: var(--ink-muted); margin-top: 0.75rem; font-size: 0.9rem; }
+  .fallback-icon { font-size: 3rem; margin-bottom: 0.5rem; }
+
+  /* ABOUT */
+  #about { background: var(--cream); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .about-text p {
+    color: var(--ink-soft);
+    font-weight: 300;
+    line-height: 1.85;
+    margin-bottom: 1rem;
+  }
+  .skills-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  .skill-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+  .skill-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--amber);
+    flex-shrink: 0;
+  }
+
+  /* CONTACT */
+  #contact { background: var(--ink); }
+  #contact .section-label { color: var(--amber-light); }
+  #contact .section-title { color: var(--cream); }
+  #contact .section-sub { color: rgba(250,247,242,0.6); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .contact-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: all 0.2s;
+  }
+  .contact-card:hover { background: rgba(255,255,255,0.09); border-color: var(--amber); }
+  .contact-card-icon { font-size: 1.5rem; margin-bottom: 0.25rem; }
+  .contact-card-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(250,247,242,0.5);
+    font-weight: 500;
+  }
+  .contact-card-value { font-size: 0.95rem; color: var(--cream); font-weight: 400; }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(250,247,242,0.35);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-avatar { width: 110px; height: 110px; font-size: 2rem; order: -1; }
+    .stats-bar { grid-template-columns: 1fr; }
+    .about-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    nav .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">✦ Владислав Габидуллин</a>
+  <ul class="nav-links">
+    <li><a href="#notes">Конспекты</a></li>
+    <li><a href="#about">Обо мне</a></li>
+    <li><a href="#contact">Контакты</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <span class="hero-tag">Репетитор по математике</span>
+    <h1>Математика,<br>которая <em>понятна.</em></h1>
+    <p>Чёткие объяснения, разобранные задачи и бесплатные PDF-конспекты по математическому анализу, линейной алгебре, статистике и геометрии - всё в одном месте.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#notes">Смотреть конспекты ↓</a>
+      <a class="btn btn-outline" href="#contact">Записаться на занятие</a>
+    </div>
+  </div>
+  <div class="hero-avatar">
+    <!-- Путь к фотографии, например: src="assets/photo.jpg" -->
+    <img src="./photo_2026-05-25_23-38-18.jpg" id="avatar-img" style="width: 200px; height: 200px; display: block; border: 2px; object-fit: contain; object-position: center;"/>
+    <span id="avatar-initials" style="font-family:'Lora',serif;font-size:1.4rem;color:var(--amber);">Владислав</span>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-number">4+</div>
+    <div class="stat-label">Разделов математики</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">50+</div>
+    <div class="stat-label">PDF-конспектов</div>
+  </div>
+  <div class="stat">
+    <div class="stat-number">∞</div>
+    <div class="stat-label">Терпения и интереса</div>
+  </div>
+</div>
+
+<!-- NOTES -->
+<section id="notes">
+  <div class="section-inner">
+    <div class="section-label">Бесплатные материалы</div>
+    <h2 class="section-title">PDF-конспекты и решения</h2>
+    <p class="section-sub">Нажмите на карточку - PDF откроется прямо на странице. Также можно скачать.</p>
+
+    <div class="topic-tabs">
+      <button class="tab-btn active" data-filter="all">Все темы</button>
+      <button class="tab-btn" data-filter="calculus">Матанализ</button>
+      <button class="tab-btn" data-filter="linear">Линейная алгебра</button>
+      <button class="tab-btn" data-filter="probabilty_theory">Теория вероятностей</button>
+      <button class="tab-btn" data-filter="statistics">Статистика</button>
+      <button class="tab-btn" data-filter="geometry">Геометрия</button>
+      <button class="tab-btn" data-filter="algebra">Алгебра</button>
+    </div>
+
+    <div class="notes-grid" id="notes-grid">
+
+      <!-- ============================================================
+           КАК ДОБАВИТЬ СВОИ PDF:
+           1. Положите PDF-файлы в папку /notes/
+           2. В каждой карточке укажите data-pdf="notes/ваш-файл.pdf"
+           3. Обновите название, описание и количество страниц.
+           ============================================================ -->
+
+      <a class="note-card" data-topic="calculus" data-pdf="notes/predely.pdf" data-title="Введение в пределы" href="#">
+        <span class="note-topic-badge badge-calculus">Матанализ</span>
+        <div class="note-title">Введение в пределы</div>
+        <div class="note-desc">Интуитивный подход к пределам, односторонние пределы и определение ε–δ с примерами.</div>
+        <div class="note-footer"><span>8 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="calculus" data-pdf="notes/proizvodnye.pdf" data-title="Правила дифференцирования" href="#">
+        <span class="note-topic-badge badge-calculus">Матанализ</span>
+        <div class="note-title">Правила дифференцирования</div>
+        <div class="note-desc">Степенное, произведение, частное и сложная функция — каждое правило с несколькими задачами.</div>
+        <div class="note-footer"><span>12 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="calculus" data-pdf="notes/integraly.pdf" data-title="Методы интегрирования" href="#">
+        <span class="note-topic-badge badge-calculus">Матанализ</span>
+        <div class="note-title">Методы интегрирования</div>
+        <div class="note-desc">Подстановка, интегрирование по частям и разложение на простые дроби — пошаговые решения.</div>
+        <div class="note-footer"><span>15 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="linear" data-pdf="notes/vektory.pdf" data-title="Векторы и скалярное произведение" href="#">
+        <span class="note-topic-badge badge-linear">Линейная алгебра</span>
+        <div class="note-title">Векторы и скалярное произведение</div>
+        <div class="note-desc">Операции с векторами, геометрический смысл, проекции и векторное произведение в ℝ³.</div>
+        <div class="note-footer"><span>10 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="linear" data-pdf="notes/matritsy.pdf" data-title="Матрицы и обратная матрица" href="#">
+        <span class="note-topic-badge badge-linear">Линейная алгебра</span>
+        <div class="note-title">Матрицы и обратная матрица</div>
+        <div class="note-desc">Умножение, определитель, метод Гаусса и нахождение обратной матрицы.</div>
+        <div class="note-footer"><span>14 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="linear" data-pdf="notes/sobstvennye.pdf" data-title="Собственные значения и векторы" href="#">
+        <span class="note-topic-badge badge-linear">Линейная алгебра</span>
+        <div class="note-title">Собственные значения и векторы</div>
+        <div class="note-desc">Характеристический многочлен, диагонализация и применение к системам ОДУ.</div>
+        <div class="note-footer"><span>11 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="probabilty_theory" data-pdf="notes/Тервер 1 неделя.pdf" data-title="Основы теории вероятностей" href="#">
+        <span class="note-topic-badge badge-probabilty_theory">Теория вероятностей</span>
+        <div class="note-title">Основы теории вероятностей</div>
+        <div class="note-desc">Пространство элементарных событий, свойства вероятностей и их док-ва.</div>
+        <div class="note-footer"><span>1 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="probabilty_theory" data-pdf="notes/Тервер 2 неделя.pdf" data-title="Формула Байеса" href="#">
+        <span class="note-topic-badge badge-probabilty_theory">Теория вероятностей</span>
+        <div class="note-title">Формула Байеса</div>
+        <div class="note-desc">Формула Байеса, независимость событий, формула полной вероятности.</div>
+        <div class="note-footer"><span>2 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="probabilty_theory" data-pdf="notes/Тервер 3 неделя.pdf" data-title="Схемы испытаний" href="#">
+        <span class="note-topic-badge badge-probabilty_theory">Теория вероятностей</span>
+        <div class="note-title">Схемы испытаний</div>
+        <div class="note-desc">Схема испытаний Бернулли, полиномиальная схема и случайное блуждание.</div>
+        <div class="note-footer"><span>2 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="probabilty_theory" data-pdf="notes/Тервер 4 неделя.pdf" data-title="Основы теории вероятностей" href="#">
+        <span class="note-topic-badge badge-probabilty_theory">Теория вероятностей</span>
+        <div class="note-title">Основы теории вероятностей</div>
+        <div class="note-desc">Случайная величина, функция распределения и её свойства, плотность вероятности и её свойства, и случайный граф.</div>
+        <div class="note-footer"><span>2 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="probabilty_theory" data-pdf="notes/Тервер 5 неделя.pdf" data-title="Математическое ожидание, дисперсия и важные нер-ва" href="#">
+        <span class="note-topic-badge badge-probabilty_theory">Теория вероятностей</span>
+        <div class="note-title">Математическое ожидание, дисперсия и важные нер-ва</div>
+        <div class="note-desc">Математическое ожидание, дисперсия и их свойства, коррелированность, нер-во Маркова (с док-ом), нер-во Чебышева (с док-ом) и ассимптотическое число треугольников в сл. графе.</div>
+        <div class="note-footer"><span>2 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="probabilty_theory" data-pdf="notes/Тервер 6 неделя.pdf" data-title="Ковариация, корреляция, ЗБЧ" href="#">
+        <span class="note-topic-badge badge-probabilty_theory">Теория вероятностей</span>
+        <div class="note-title">Ковариация, корреляция, ЗБЧ</div>
+        <div class="note-desc">Независимость событий попарная/в совокупности, ковариация, корреляция, ЗБЧ.</div>
+        <div class="note-footer"><span>2 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="probabilty_theory" data-pdf="notes/Тервер 7 неделя.pdf" data-title="Предельные теоремы" href="#">
+        <span class="note-topic-badge badge-probabilty_theory">Теория вероятностей</span>
+        <div class="note-title">Предельные теоремы</div>
+        <div class="note-desc">Предельная теорема Пуассона, интегральная теорема Муавра-Лапласа, экспоненциальная вероятность.</div>
+        <div class="note-footer"><span>2 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="probabilty_theory" data-pdf="notes/Тервер 8 неделя.pdf" data-title="Основы теории вероятностей" href="#">
+        <span class="note-topic-badge badge-probabilty_theory">Теория вероятностей</span>
+        <div class="note-title">Основы теории вероятностей</div>
+        <div class="note-desc">Парадокс Бертрана, геометрическая вероятность.</div>
+        <div class="note-footer"><span>1 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="probabilty_theory" data-pdf="notes/Тервер 9 неделя.pdf" data-title="УЗБЧ, ЦПТ, сходимости и свёртка" href="#">
+        <span class="note-topic-badge badge-probabilty_theory">Теория вероятностей</span>
+        <div class="note-title">УЗБЧ, ЦПТ, сходимости и свёртка</div>
+        <div class="note-desc">Сходимости по вероятности/почти наверное, УЗБЧ, ЦПТ, формула свёртки.</div>
+        <div class="note-footer"><span>1 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="probabilty_theory" data-pdf="notes/Тервер Доп разбор док-ва ЦПТ.pdf" data-title="Доказательство ЦПТ" href="#">
+        <span class="note-topic-badge badge-probabilty_theory">Теория вероятностей</span>
+        <div class="note-title">Доказательство ЦПТ</div>
+        <div class="note-desc">Доказательство ЦПТ.</div>
+        <div class="note-footer"><span>1 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="probabilty_theory" data-pdf="notes/Тервер 13 неделя.pdf" data-title="Гауссовский вектор, МЦПТ, хар. ф-ция" href="#">
+        <span class="note-topic-badge badge-probabilty_theory">Теория вероятностей</span>
+        <div class="note-title">Гауссовский вектор, МЦПТ, хар. ф-ция</div>
+        <div class="note-desc">Характеристическая функция, Гауссовский вектор с параметрами, МЦПТ (аналог ЦПТ в многомерке).</div>
+        <div class="note-footer"><span>1 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="probabilty_theory" data-pdf="notes/Тервер 14 неделя.pdf" data-title="Условное математическое ожидание" href="#">
+        <span class="note-topic-badge badge-probabilty_theory">Теория вероятностей</span>
+        <div class="note-title">Условное математическое ожидание</div>
+        <div class="note-desc">Условное математическое ожидание и его свойства.</div>
+        <div class="note-footer"><span>1 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="probabilty_theory" data-pdf="notes/Тервер 15 неделя.pdf" data-title="Условная плотность вероятности" href="#">
+        <span class="note-topic-badge badge-probabilty_theory">Теория вероятностей</span>
+        <div class="note-title">Условная плотность вероятности</div>
+        <div class="note-desc">Условная плотность вероятности.</div>
+        <div class="note-footer"><span>1 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="probabilty_theory" data-pdf="notes/Тервер 16 неделя.pdf" data-title="Цепи Маркова, ветвящийся процесс" href="#">
+        <span class="note-topic-badge badge-probabilty_theory">Теория вероятностей</span>
+        <div class="note-title">Цепи Маркова, ветвящийся процесс</div>
+        <div class="note-desc">Ветвящийся процесс, Цепи Маркова, Эргодическая теорема, простейшее симм. сл. блуждание и пр.</div>
+        <div class="note-footer"><span>1 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="statistics" data-pdf="notes/Матстат_1_неделя_1.pdf" data-title="Основные определения" href="#">
+        <span class="note-topic-badge badge-statistics">Статистика</span>
+        <div class="note-title">Основные определения</div>
+        <div class="note-desc"> ..., задачи.</div>
+        <div class="note-footer"><span>2 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="statistics" data-pdf="notes/Матстат 2 неделя.pdf" data-title="Основные определения" href="#">
+        <span class="note-topic-badge badge-statistics">Статистика</span>
+        <div class="note-title">Основные определения</div>
+        <div class="note-desc">Параметрические модели, статистика, выборочные характеристики, ф-ции от выборочных характеристик, выборочный квантиль и оценки.</div>
+        <div class="note-footer"><span>1 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="statistics" data-pdf="notes/Матстат 3 неделя.pdf" data-title="Основные методы для поиска оценок" href="#">
+        <span class="note-topic-badge badge-statistics">Статистика</span>
+        <div class="note-title">Основные методы для поиска оценок</div>
+        <div class="note-desc">Метод макс. правдоподобия, метод моментов, ф-ция правдоподобия.</div>
+        <div class="note-footer"><span>1 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="statistics" data-pdf="notes/Матстат 4 неделя.pdf" data-title="Ф-ция потерь, ф-ция риска, равномерный подход, нер-во Крамера-Рао, критерий эффективности" href="#">
+        <span class="note-topic-badge badge-statistics">Статистика</span>
+        <div class="note-title">Ф-ция потерь, ф-ция риска, равномерный подход, нер-во Крамера-Рао, критерий эффективности</div>
+        <div class="note-desc">Ф-ция потерь, ф-ция риска, равномерный подход, нер-во Крамера-Рао, критерий эффективности, условия регулярности, наилучшая/эффективная оценки.</div>
+        <div class="note-footer"><span>1 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="statistics" data-pdf="notes/Матстат 5 неделя.pdf" data-title="Достаточная статистика, критерий факторизации Неймана-Фишера, теорема Колмогорова-Блекуэлла-Рао, теорема об оптимальной оценке, теорема об экспоненциальном семействе" href="#">
+        <span class="note-topic-badge badge-statistics">Статистика</span>
+        <div class="note-title">Критерий факторизации Неймана-Фишера, теорема Колмогорова-Блекуэлла-Рао, теорема об оптимальной оценке, теорема об экспоненциальном семействе</div>
+        <div class="note-desc">Достаточная/полная статистика, оптимальная оценка, критерий факторизации Неймана-Фишера, теорема Колмогорова-Блекуэлла-Рао, теорема об оптимальной оценке, теорема об экспоненциальном семействе.</div>
+        <div class="note-footer"><span>1 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="statistics" data-pdf="notes/Матстат 6 неделя.pdf" data-title="Достаточная статистика, критерий факторизации Неймана-Фишера, теорема Колмогорова-Блекуэлла-Рао, теорема об оптимальной оценке, теорема об экспоненциальном семействе" href="#">
+        <span class="note-topic-badge badge-statistics">Статистика</span>
+        <div class="note-title">Байесовская статистика</div>
+        <div class="note-desc">.</div>
+        <div class="note-footer"><span>1 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="statistics" data-pdf="notes/raspredeleniya.pdf" data-title="Основные распределения" href="#">
+        <span class="note-topic-badge badge-statistics">Статистика</span>
+        <div class="note-title">Основные распределения</div>
+        <div class="note-desc">Биномиальное, Пуассона, нормальное и t-распределение: формулы, графики, задачи.</div>
+        <div class="note-footer"><span>13 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="geometry" data-pdf="notes/Углы треугольников.pdf" data-title="Углы треугольников" href="#">
+        <span class="note-topic-badge badge-geometry">Геометрия</span>
+        <div class="note-title">Углы треугольников</div>
+        <div class="note-desc">Основная теорема и следствия</div>
+        <div class="note-footer"><span>2 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="geometry" data-pdf="notes/Треугольники.pdf" data-title="Треугольники" href="#">
+        <span class="note-topic-badge badge-geometry">Геометрия</span>
+        <div class="note-title">Треугольники</div>
+        <div class="note-desc">Основные теоремы</div>
+        <div class="note-footer"><span>2 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="geometry" data-pdf="notes/Четырехугольники.pdf" data-title="Четырехугольники" href="#">
+        <span class="note-topic-badge badge-geometry">Геометрия</span>
+        <div class="note-title">Четырехугольники</div>
+        <div class="note-desc">Основные свойства</div>
+        <div class="note-footer"><span>2 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="geometry" data-pdf="notes/Углы вписанные в окружность.pdf" data-title="Углы вписанные в окружность" href="#">
+        <span class="note-topic-badge badge-geometry">Геометрия</span>
+        <div class="note-title">Углы вписанные в окружность</div>
+        <div class="note-desc">Основные теоремы и свойства</div>
+        <div class="note-footer"><span>2 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="geometry" data-pdf="notes/Многоугольники и окружности.pdf" data-title="Многоугольники и окружности" href="#">
+        <span class="note-topic-badge badge-geometry">Геометрия</span>
+        <div class="note-title">Многоугольники и окружности</div>
+        <div class="note-desc">Основные свойства</div>
+        <div class="note-footer"><span>2 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="geometry" data-pdf="notes/Стереометрия.pdf" data-title="Стереометрия" href="#">
+        <span class="note-topic-badge badge-geometry">Стереометрия</span>
+        <div class="note-title">Стереометрия</div>
+        <div class="note-desc">Основные теоремы и свойства</div>
+        <div class="note-footer"><span>7 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="geometry" data-pdf="notes/trigonometriya.pdf" data-title="Основы тригонометрии" href="#">
+        <span class="note-topic-badge badge-geometry">Геометрия</span>
+        <div class="note-title">Основы тригонометрии</div>
+        <div class="note-desc">Единичная окружность, тригонометрические тождества, теоремы синусов и косинусов.</div>
+        <div class="note-footer"><span>10 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="geometry" data-pdf="notes/analitichesk.pdf" data-title="Аналитическая геометрия" href="#">
+        <span class="note-topic-badge badge-geometry">Геометрия</span>
+        <div class="note-title">Аналитическая геометрия</div>
+        <div class="note-desc">Прямые, окружности, параболы, эллипсы и гиперболы на координатной плоскости.</div>
+        <div class="note-footer"><span>12 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="algebra" data-pdf="notes/Полиномы.pdf" data-title="Многочлены" href="#">
+        <span class="note-topic-badge badge-algebra">Алгебра</span>
+        <div class="note-title">Многочлены</div>
+        <div class="note-desc">Действия с многочленами, схема Горнера, Теорема Безу</div>
+        <div class="note-footer"><span>14 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="algebra" data-pdf="notes/Неравенства.pdf" data-title="Неравенства" href="#">
+        <span class="note-topic-badge badge-algebra">Алгебра</span>
+        <div class="note-title">Неравенства</div>
+        <div class="note-desc">Неравенства, метод рационализации</div>
+        <div class="note-footer"><span>2 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="algebra" data-pdf="notes/Уравнения с параметром.pdf" data-title="Уравнения с параметром" href="#">
+        <span class="note-topic-badge badge-algebra">Алгебра</span>
+        <div class="note-title">Параметры</div>
+        <div class="note-desc">Уравнения с параметрами</div>
+        <div class="note-footer"><span>2 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+      <a class="note-card" data-topic="algebra" data-pdf="notes/Финансовая математика.pdf" data-title="Финансовая математика" href="#">
+        <span class="note-topic-badge badge-algebra">Алгебра</span>
+        <div class="note-title">Финансы</div>
+        <div class="note-desc">Финансовая математика</div>
+        <div class="note-footer"><span>2 стр.</span><div class="note-dl-icon">↓</div></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- PDF MODAL -->
+<div id="pdf-modal" role="dialog" aria-modal="true" aria-label="Просмотр PDF">
+  <div class="modal-box">
+    <div class="modal-header">
+      <span class="modal-title" id="modal-title">Просмотр</span>
+      <div class="modal-header-actions">
+        <a class="modal-dl-btn" id="modal-dl-btn" href="#" download target="_blank">⬇ Скачать PDF</a>
+        <button class="modal-close" id="modal-close" aria-label="Закрыть">×</button>
+      </div>
+    </div>
+    <div class="modal-body" id="modal-body">
+      <div class="modal-fallback" id="modal-fallback">
+        <div class="fallback-icon">📄</div>
+        <p>Не удалось открыть PDF в браузере.</p>
+        <a id="modal-fallback-link" href="#" target="_blank" style="color:var(--amber);font-weight:500;text-decoration:none;">Открыть в новой вкладке →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">Обо мне</div>
+    <h2 class="section-title">Репетитор, которому важен результат.</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>Привет! Я Владислав Габидуллин, репетитор по математике с опытом работы со студентами разного уровня.</p>
+        <p>Я убеждён, что у каждого понятия есть интуитивное объяснение, и «неспособных к математике» людей не бывает - просто ещё не нашёлся правильный подход. Занятия всегда спокойные, терпеливые и выстроенные под вас.</p>
+        <p>Все PDF-конспекты на этом сайте - мои собственные разборы и конспекты. Пользуйтесь бесплатно.</p>
+      </div>
+      <div>
+        <ul class="skills-list">
+          <li class="skill-item"><span class="skill-dot"></span>Математический анализ (I, II, III)</li>
+          <li class="skill-item"><span class="skill-dot"></span>Линейная алгебра</li>
+          <li class="skill-item"><span class="skill-dot"></span>Теория вероятностей и статистика</li>
+          <li class="skill-item"><span class="skill-dot"></span>Геометрия и тригонометрия</li>
+          <li class="skill-item"><span class="skill-dot"></span>Математический анализ (вузовский курс)</li>
+          <li class="skill-item"><span class="skill-dot"></span>Дискретная математика</li>
+          <li class="skill-item"><span class="skill-dot"></span>Подготовка к экзаменам</li>
+          <li class="skill-item"><span class="skill-dot"></span>Онлайн и очные занятия</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Связаться</div>
+    <h2 class="section-title">Записаться на занятие?</h2>
+    <p class="section-sub">Занятия доступны онлайн и очно. Первая консультация — бесплатно.</p>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:vladislav.gabidullin1@gmail.com">
+        <div class="contact-card-icon">✉</div>
+        <div class="contact-card-label">Электронная почта</div>
+        <div class="contact-card-value">vladislav.gabidullin1@gmail.com</div>
+      </a>
+      <a class="contact-card" href="https://t.me/@Vladislav_Nano" target="_blank" rel="noopener">
+        <div class="contact-card-icon">✈</div>
+        <div class="contact-card-label">Telegram</div>
+        <div class="contact-card-value">@Vladislav_Nano</div>
+      </a>
+      <a class="contact-card" href="https://wa.me/79811655967" target="_blank" rel="noopener">
+        <div class="contact-card-icon">📱</div>
+        <div class="contact-card-label">Телефон</div>
+        <div class="contact-card-value">+7 981 165 59 67</div>
+      </a>
+      <a class="contact-card" href="#notes">
+        <div class="contact-card-icon">📂</div>
+        <div class="contact-card-label">Бесплатные материалы</div>
+        <div class="contact-card-value">Посмотреть все конспекты ↑</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © <span id="yr"></span> Габидуллин Владислав · Репетитор по математике · Сделано с ♥ и большим количеством интегралов
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* Avatar: скрываем img если src пустой */
+const img = document.getElementById('avatar-img');
+if (!img.getAttribute('src')) {
+  img.style.display = 'none';
+}
+
+/* Фильтрация по темам */
+const tabs = document.querySelectorAll('.tab-btn');
+const cards = document.querySelectorAll('.note-card');
+tabs.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    cards.forEach(card => {
+      if (filter === 'all' || card.dataset.topic === filter) {
+        card.removeAttribute('data-hidden');
+      } else {
+        card.setAttribute('data-hidden', 'true');
+      }
+    });
+  });
+});
+
+/* PDF-модалка */
+const modal      = document.getElementById('pdf-modal');
+const modalTitle = document.getElementById('modal-title');
+const modalBody  = document.getElementById('modal-body');
+const modalClose = document.getElementById('modal-close');
+const modalDlBtn = document.getElementById('modal-dl-btn');
+const fallback   = document.getElementById('modal-fallback');
+const fallbackLink = document.getElementById('modal-fallback-link');
+
+function openModal(pdfPath, title) {
+  modalTitle.textContent = title;
+  modalDlBtn.href = pdfPath;
+  fallbackLink.href = pdfPath;
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+
+  /* Убираем старый iframe */
+  const old = modalBody.querySelector('iframe');
+  if (old) old.remove();
+  fallback.style.display = 'none';
+
+  const iframe = document.createElement('iframe');
+  iframe.title = title;
+  iframe.style.cssText = 'width:100%;flex:1;min-height:560px;border:none;border-radius:8px;background:white;';
+
+  /* Таймаут: если PDF не загрузился — показываем фоллбэк */
+  let loaded = false;
+  const timer = setTimeout(() => {
+    if (!loaded) fallback.style.display = 'block';
+  }, 4000);
+
+  iframe.onload = () => { loaded = true; clearTimeout(timer); };
+  iframe.onerror = () => { clearTimeout(timer); fallback.style.display = 'block'; };
+
+  iframe.src = pdfPath;
+  modalBody.insertBefore(iframe, fallback);
+}
+
+cards.forEach(card => {
+  card.addEventListener('click', e => {
+    e.preventDefault();
+    const pdf = card.dataset.pdf;
+    const title = card.dataset.title;
+    if (pdf) openModal(pdf, title);
+  });
+});
+
+function closeModal() {
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+  const iframe = modalBody.querySelector('iframe');
+  if (iframe) iframe.remove();
+  fallback.style.display = 'none';
+}
+
+modalClose.addEventListener('click', closeModal);
+modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>
+</body>
+</html>
